@@ -23,7 +23,6 @@ public class Slimothy : UdonSharpBehaviour
 
     public override void OnPlayerTriggerEnter(VRCPlayerApi p){
         lastPlayerWhoSquished = p.displayName;
-        Networking.SetOwner(Networking.LocalPlayer, textObject);
         SendCustomNetworkEvent(NetworkEventTarget.All, nameof(SlimothySquishHandler));
         RequestSerialization();
         SlimothySquishHandler();
